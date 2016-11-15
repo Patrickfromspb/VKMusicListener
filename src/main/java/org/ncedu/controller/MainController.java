@@ -1,12 +1,8 @@
 package org.ncedu.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-
-import javax.sound.sampled.AudioSystem;
-
 /**
  *
  *
@@ -22,7 +18,7 @@ public class MainController {
     private static final String VERSION_API = "v=5.60";
 
     @RequestMapping(value = "auth", method = RequestMethod.GET)
-    public String pringWelcome(ModelMap model) {
+    public String vkoAuth(ModelMap model) {
         return "redirect:"+
                 OAUTH_URL+
                 "?"+
@@ -34,14 +30,14 @@ public class MainController {
     }
 
     @RequestMapping(value = "oauth2")
-    public String auth () {
+    public String redirectOverJs() {
         return "auth";
     }
 
     @RequestMapping(value = "user")
-    public String user (@RequestParam(value = "access_token") String token,
-                        @RequestParam(value = "user_id") String user_id,
-                        ModelMap model) {
+    public String getUser (@RequestParam(value = "access_token") String token,
+                           @RequestParam(value = "user_id") String user_id,
+                           ModelMap model) {
         model.addAttribute("token", token);
         model.addAttribute("user_id", user_id);
         return "user";
