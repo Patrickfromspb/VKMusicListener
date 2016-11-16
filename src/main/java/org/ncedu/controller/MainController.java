@@ -18,7 +18,7 @@ public class MainController {
     private static final String VERSION_API = "v=5.60";
 
     @RequestMapping(value = "auth", method = RequestMethod.GET)
-    public String vkoAuth(ModelMap model) {
+    public String vkAuth(ModelMap model) {
         return "redirect:"+
                 OAUTH_URL+
                 "?"+
