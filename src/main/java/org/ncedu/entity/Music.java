@@ -1,46 +1,40 @@
 package org.ncedu.entity;
 
-import org.hibernate.annotations.GenericGenerator;
+import oracle.sql.BLOB;
 
 import javax.persistence.*;
 import java.util.Set;
 
 /**
- * Created by nick on 14.11.16.
+ * Created by nick on 19.11.16.
  */
-@Entity
-@Table (name = "Music")
 public class Music {
-    @Id
-    @GeneratedValue (generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @Column (name = "music_id")
-    private long id;
+    private Long music_id;
 
-    @Column (name = "name")
+    private String author;
+
     private String name;
 
-    @Column (name = "track_link")
-    private String track_link;
+    private BLOB song;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Playlist")
     private Set<Playlist> playlists;
-
-    public Music(long id, String name, String track_link) {
-        this.id = id;
-        this.name = name;
-        this.track_link = track_link;
-    }
 
     public Music() {
     }
 
-    public long getId() {
-        return id;
+    public Long getMusic_id() {
+        return music_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setMusic_id(Long music_id) {
+        this.music_id = music_id;
+    }
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getName() {
@@ -51,12 +45,12 @@ public class Music {
         this.name = name;
     }
 
-    public String getTrack_link() {
-        return track_link;
+    public BLOB getSong() {
+        return song;
     }
 
-    public void setTrack_link(String track_link) {
-        this.track_link = track_link;
+    public void setSong(BLOB song) {
+        this.song = song;
     }
 
     public Set<Playlist> getPlaylists() {
@@ -65,15 +59,5 @@ public class Music {
 
     public void setPlaylists(Set<Playlist> playlists) {
         this.playlists = playlists;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Music{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", track_link='" + track_link + '\'' +
-                '}';
     }
 }

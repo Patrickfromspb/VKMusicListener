@@ -1,82 +1,63 @@
 package org.ncedu.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
+import java.sql.Date;
 import java.util.Set;
 
 /**
- * Created by nick on 14.11.16.
+ * Created by nick on 19.11.16.
  */
-@Entity
-@Table (name = "Playlist")
 public class Playlist {
-    @Id
-    @GeneratedValue (generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @Column (name = "playlist_id")
-    private long id;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "room_id", nullable = false)
-    @Column (name = "room_id")
-    private long room_id;
+    private long playlist_id;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "music_id", nullable = false)
-    @Column (name = "music_id")
-    private long music_id;
+    private Rooms rooms;
 
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "User_Playlist")
-    private Set<UserPlaylist> userPlaylists;
+    private Music music;
 
-    public Playlist(long id, long room_id, long music_id) {
-        this.id = id;
-        this.room_id = room_id;
-        this.music_id = music_id;
-    }
+    private Date added_date;
+
+    private Set<User_Playlist> user_playlists;
 
     public Playlist() {
     }
 
-    public long getId() {
-        return id;
+    public long getPlaylist_id() {
+        return playlist_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPlaylist_id(long playlist_id) {
+        this.playlist_id = playlist_id;
     }
 
-    public long getRoom_id() {
-        return room_id;
+    public Rooms getRooms() {
+        return rooms;
     }
 
-    public void setRoom_id(long room_id) {
-        this.room_id = room_id;
+    public void setRooms(Rooms rooms) {
+        this.rooms = rooms;
     }
 
-    public long getMusic_id() {
-        return music_id;
+    public Music getMusic() {
+        return music;
     }
 
-    public void setMusic_id(long music_id) {
-        this.music_id = music_id;
+    public void setMusic(Music music) {
+        this.music = music;
     }
 
-    public Set<UserPlaylist> getUserPlaylists() {
-        return userPlaylists;
+    public Date getAdded_date() {
+        return added_date;
     }
 
-    public void setUserPlaylists(Set<UserPlaylist> userPlaylists) {
-        this.userPlaylists = userPlaylists;
+    public void setAdded_date(Date added_date) {
+        this.added_date = added_date;
     }
 
-    @Override
-    public String toString() {
-        return "Playlist{" +
-                "id=" + id +
-                ", room_id=" + room_id +
-                ", music_id=" + music_id +
-                '}';
+    public Set<User_Playlist> getUser_playlists() {
+        return user_playlists;
+    }
+
+    public void setUser_playlists(Set<User_Playlist> user_playlists) {
+        this.user_playlists = user_playlists;
     }
 }

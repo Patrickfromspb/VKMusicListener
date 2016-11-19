@@ -1,24 +1,23 @@
 package org.ncedu.config;
 
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate3.HibernateTransactionManager;
+import org.springframework.orm.hibernate3.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.util.Properties;
+import java.io.IOException;
 
 @Configuration
 @ComponentScan("org.ncedu")
@@ -38,5 +37,41 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/pages/**").addResourceLocations("/pages/");
+    }
+
+    @Bean
+    public DataSource dataSource () {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+        dataSource.setUrl("jdbc:oracle:thin:@10.17.1.48:1521/orcl");
+        dataSource.setUsername("admin");
+        dataSource.setPassword("1");
+        return dataSource;
+    }
+    @Bean(name = "sessionFactory")
+    public SessionFactory sessionFactory () throws Exception {
+        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
+        //sessionFactoryBean.setDataSource(dataSource());
+        sessionFactoryBean.setConfigLocation(new ClassPathResource("hibernate.cfg.xml"));
+        //sessionFactoryBean.setPackagesToScan("org.ncedu.entity");
+        sessionFactoryBean.afterPropertiesSet();
+        return sessionFactoryBean.getObject();
+
+    }
+
+    @Bean(name = "hibernateTemplate")
+    public HibernateTemplate hibernateTemplate () throws Exception {
+        HibernateTemplate hibernateTemplate = new HibernateTemplate();
+        hibernateTemplate.setSessionFactory(sessionFactory());
+        hibernateTemplate.afterPropertiesSet();
+        return hibernateTemplate;
+    }
+
+    @Bean(name = "hibernateTransactionManager")
+    public HibernateTransactionManager hibernateTransactionManager() throws Exception {
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(sessionFactory());
+        transactionManager.afterPropertiesSet();
+        return transactionManager;
     }
 }
