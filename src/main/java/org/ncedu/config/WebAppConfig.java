@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
@@ -34,16 +35,11 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/pages/**").addResourceLocations("/pages/");
-    }
-
     @Bean
     public DataSource dataSource () {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        dataSource.setUrl("jdbc:oracle:thin:@10.17.1.48:1521/orcl");
+        dataSource.setUrl("jdbc:oracle:thin:@192.168.0.108:1521/orcl");
         dataSource.setUsername("admin");
         dataSource.setPassword("1");
         return dataSource;
@@ -73,5 +69,10 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         transactionManager.setSessionFactory(sessionFactory());
         transactionManager.afterPropertiesSet();
         return transactionManager;
+    }
+
+    @Override
+    public void addResourceHandlers (ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 }

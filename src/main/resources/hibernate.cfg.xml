@@ -6,7 +6,7 @@
     <session-factory>
         <!--<property name="hibernate.connection.datasource">dataSource</property>-->
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@10.17.1.48:1521/orcl</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.0.108:1521/orcl</property>
         <property name="hibernate.connection.username">admin</property>
         <property name="hibernate.connection.password">1</property>
         <!--<property name="hibernate.default_schema">ORCL12C</property>-->

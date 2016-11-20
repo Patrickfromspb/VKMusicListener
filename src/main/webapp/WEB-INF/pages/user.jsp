@@ -8,10 +8,9 @@
     <title>User Page</title>
 </head>
 <body>
-<h1>Authorized!</h1>
+<h1>This is Personal Area.</h1>
 
-<div>user_id:  ${user_id}</div>
-<div>Token:   ${token}</div>
+<div>user_id:  ${user}</div>
 <br/>
 
 </body>

@@ -1,14 +1,18 @@
 package org.ncedu.controller;
 
+import org.ncedu.entity.Users;
 import org.ncedu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.sql.Date;
 
 /**
  *
@@ -27,8 +31,13 @@ public class MainController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index (HttpServletRequest request, ModelMap model) {
+        model.addAttribute("message", "authOverVk");
+        return "index";
+    }
     @RequestMapping(value = "auth", method = RequestMethod.GET)
-    public String vkoAuth(ModelMap model) {
+    public String vkoAuth() {
         return "redirect:"+
                 OAUTH_URL+
                 "?"+
@@ -41,17 +50,40 @@ public class MainController {
 
     @RequestMapping(value = "oauth2")
     public String redirectOverJs() {
-        return "auth";
+        return "redirectOverJs";
+    }
+
+    @RequestMapping(value = "useradd")
+    public String getUser (@RequestParam(value = "access_token") String token,
+                           @RequestParam(value = "user_id") String user_id) {
+                          // HttpServletRequest request,
+                           //HttpServletResponse response) throws IOException, ServletException {
+        /*if (request.getMethod().equals("GET")) {
+            //model.addAttribute("token", token);
+            //model.addAttribute("user_id", user_id);
+            request.getServletContext().getRequestDispatcher("user.jsp").forward(request, response);
+            return response;
+        } else {
+            response.setStatus(200);
+            response.getOutputStream().write("id".getBytes());
+            return response;
+        } */
+        Users user = new Users();
+        user.setVk_id(user_id);
+        user.setAccess_token(token);
+        user.setRegistration(new Date(new java.util.Date().getTime()));
+        user.setName(user_id);
+        userService.addUser(user);
+        return "redirect:user?user="+user.getUser_id();
     }
 
     @RequestMapping(value = "user")
-    public String getUser (@RequestParam(value = "access_token") String token,
-                           @RequestParam(value = "user_id") String user_id,
+    public String getUser (@RequestParam(value = "user") String user,
                            ModelMap model) {
-        model.addAttribute("token", token);
-        model.addAttribute("user_id", user_id);
+        model.addAttribute("user", user);
         return "user";
     }
+
 
     @RequestMapping(value = "mp3")
     public HttpServletResponse mp3 (HttpServletRequest request, HttpServletResponse response)
