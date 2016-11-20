@@ -7,12 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+<<<<<<< HEAD
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.sql.Date;
+=======
+import org.springframework.web.servlet.ModelAndView;
+>>>>>>> 665591ca6b099976fa63acaecdae0d2fa52f106f
 
 /**
  *
@@ -23,7 +27,7 @@ public class MainController {
 
     private static final String OAUTH_URL = "https://oauth.vk.com/authorize";
     private static final String CLIENT_ID = "client_id=5691009";
-    private static final String REDIRECT_URI = "redirect_uri=http://localhost:8080/VKMusicListener/oauth2";
+    private static final String REDIRECT_URI = "redirect_uri=http://localhost:3306/VKMusicListener/oauth2";
     private static final String SCOPE = "scope=65544";
     private static final String RESPONCE_TYPE = "response_type=token&v=5.60";
     private static final String VERSION_API = "v=5.60";
@@ -37,7 +41,11 @@ public class MainController {
         return "index";
     }
     @RequestMapping(value = "auth", method = RequestMethod.GET)
+<<<<<<< HEAD
     public String vkoAuth() {
+=======
+    public String vkAuth(ModelMap model) {
+>>>>>>> 665591ca6b099976fa63acaecdae0d2fa52f106f
         return "redirect:"+
                 OAUTH_URL+
                 "?"+
@@ -48,12 +56,21 @@ public class MainController {
                 VERSION_API;
     }
 
+
     @RequestMapping(value = "oauth2")
     public String redirectOverJs() {
         return "redirectOverJs";
     }
 
+<<<<<<< HEAD
     @RequestMapping(value = "useradd")
+=======
+    @RequestMapping(value = "/")
+    public ModelAndView mainPage() {
+        return new ModelAndView("home");
+    }
+    @RequestMapping(value = "user")
+>>>>>>> 665591ca6b099976fa63acaecdae0d2fa52f106f
     public String getUser (@RequestParam(value = "access_token") String token,
                            @RequestParam(value = "user_id") String user_id) {
                           // HttpServletRequest request,

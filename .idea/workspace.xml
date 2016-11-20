@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b9a96-583d-4408-bbfd-acb1ac7ee385" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/index.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/auth.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/redirectOverJs.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VKMusicListener.war" afterPath="$PROJECT_DIR$/target/VKMusicListener.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VKMusicListener/WEB-INF/classes/org/ncedu/config/WebAppConfig.class" afterPath="$PROJECT_DIR$/target/VKMusicListener/WEB-INF/classes/org/ncedu/config/WebAppConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VKMusicListener/WEB-INF/classes/org/ncedu/controller/MainController.class" afterPath="$PROJECT_DIR$/target/VKMusicListener/WEB-INF/classes/org/ncedu/controller/MainController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/ncedu/config/WebAppConfig.class" afterPath="$PROJECT_DIR$/target/classes/org/ncedu/config/WebAppConfig.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/ncedu/controller/MainController.class" afterPath="$PROJECT_DIR$/target/classes/org/ncedu/controller/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/ncedu/config/WebAppConfig.java" afterPath="$PROJECT_DIR$/src/main/java/org/ncedu/config/WebAppConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/ncedu/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/org/ncedu/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/ncedu/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/org/ncedu/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/ncedu/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/ncedu/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/VKMusicListener/index.jsp" afterPath="$PROJECT_DIR$/target/VKMusicListener/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
     </list>
     <ignored path="VKMusicListener.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,8 +33,8 @@
       <file leaf-file-name="WebAppConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/ncedu/config/WebAppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+            <state relative-caret-position="775">
+              <caret line="90" column="45" selection-start-line="90" selection-start-column="45" selection-end-line="90" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,12 +70,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/ncedu/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
-              <caret line="57" column="74" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
+              <caret line="74" column="74" selection-start-line="74" selection-start-column="74" selection-end-line="74" selection-end-column="74" />
               <folding>
-                <element signature="e#1714#1715#0" expanded="true" />
-                <element signature="e#1753#1754#0" expanded="true" />
-                <element signature="e#3802#3803#0" expanded="true" />
-                <element signature="e#3831#3832#0" expanded="true" />
+                <marker date="1479638507000" expanded="true" signature="3464:3536" ph="{...}" />
+                <marker date="1479638507000" expanded="true" signature="3699:4182" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -1248,12 +1236,12 @@
       <workItem from="1479277434776" duration="13169000" />
       <workItem from="1479428774440" duration="2851000" />
       <workItem from="1479434177064" duration="6962000" />
-      <workItem from="1479487131776" duration="21237000" />
+      <workItem from="1479487131776" duration="21429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62806000" />
+    <option name="totallyTimeSpent" value="62998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1683,8 +1671,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/ncedu/config/WebAppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+        <state relative-caret-position="775">
+          <caret line="90" column="45" selection-start-line="90" selection-start-column="45" selection-end-line="90" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1746,12 +1734,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/ncedu/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="57" column="74" selection-start-line="57" selection-start-column="74" selection-end-line="57" selection-end-column="74" />
+          <caret line="74" column="74" selection-start-line="74" selection-start-column="74" selection-end-line="74" selection-end-column="74" />
           <folding>
-            <element signature="e#1714#1715#0" expanded="true" />
-            <element signature="e#1753#1754#0" expanded="true" />
-            <element signature="e#3802#3803#0" expanded="true" />
-            <element signature="e#3831#3832#0" expanded="true" />
+            <marker date="1479638507000" expanded="true" signature="3464:3536" ph="{...}" />
+            <marker date="1479638507000" expanded="true" signature="3699:4182" ph="{...}" />
           </folding>
         </state>
       </provider>
